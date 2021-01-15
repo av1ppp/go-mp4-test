@@ -2,7 +2,6 @@ package mp4
 
 import (
 	"errors"
-	"fmt"
 	"os"
 	"path/filepath"
 )
@@ -33,11 +32,9 @@ func NewVideo(p string) (*Video, error) {
 
 func exists(p string) bool {
 	_, err := os.Stat(p)
-	fmt.Println(err.Error())
-	return err != nil
+	return !os.IsNotExist(err)
 }
 
 func fileExtension(p string) bool {
-	fmt.Println(filepath.Ext(p))
-	return false
+	return filepath.Ext(p) == ".mp4"
 }

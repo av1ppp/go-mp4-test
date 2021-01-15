@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	_, err := mp4.NewVideo("../../example/videos/small.mp4")
+	_, err := mp4.NewVideo("example/videos/small.mp4")
 	if err != nil {
-		// fmt.Println(err.Error())
+		fmt.Println(err.Error())
 		return
 	}
 
