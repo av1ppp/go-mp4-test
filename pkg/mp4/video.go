@@ -2,6 +2,7 @@ package mp4
 
 import (
 	"errors"
+	"io/ioutil"
 	"os"
 	"path/filepath"
 )
@@ -26,6 +27,15 @@ func NewVideo(p string) (*Video, error) {
 	if !fileExtension(p) {
 		return v, errors.New("Unsuitable file extension")
 	}
+
+	// Read file data
+	data, err := ioutil.ReadFile(p)
+	if err != nil {
+		return v, err
+	}
+	v.Data = data
+
+	v.Path = p
 
 	return v, nil
 }
