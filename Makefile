@@ -2,4 +2,4 @@ build:
 	go build ./cmd/mp4reader
 
 run:
-	go build ./cmd/mp4reader
+	go run ./cmd/mp4reader
