@@ -7,11 +7,13 @@ import (
 )
 
 func main() {
-	_, err := mp4.NewVideo("example/videos/small.mp4")
+	v, err := mp4.NewVideo("example/videos/small.mp4")
 	if err != nil {
 		fmt.Println(err.Error())
 		return
 	}
+
+	fmt.Println(v)
 
 	fmt.Println("End")
 }
