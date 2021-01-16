@@ -18,26 +18,26 @@ type Video struct {
 
 // NewVideo creates a new structure of Video
 func NewVideo(p string) (*Video, error) {
-	var v *Video
+	var v Video
 
 	if !exists(p) {
-		return v, errors.New("File not found")
+		return &v, errors.New("File not found")
 	}
 
 	if !fileExtension(p) {
-		return v, errors.New("Unsuitable file extension")
+		return &v, errors.New("Unsuitable file extension")
 	}
 
 	// Read file data
 	data, err := ioutil.ReadFile(p)
 	if err != nil {
-		return v, err
+		return &v, err
 	}
 	v.Data = data
 
 	v.Path = p
 
-	return v, nil
+	return &v, nil
 }
 
 func exists(p string) bool {
